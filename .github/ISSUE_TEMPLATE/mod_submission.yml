@@ -1,0 +1,97 @@
+name: 🚀 Submit a Homebrew Mod or WIP Teaser
+description: Submit a playable mod, Work In Progress (WIP), or teaser concept to HomeSoulDB.
+title: "[Mod Submission]: "
+labels: ["mod-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit your playable mod or WIP teaser to **HomeSoulDB**!
+  - type: input
+    id: mod_id
+    attributes:
+      label: Unique Mod ID
+      description: Lowercase alphanumeric identifier with underscores (e.g. `funkin_brew`, `hyper_wip`).
+      placeholder: my_cool_mod
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Mod Title
+      placeholder: My Cool Mod (WIP)
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Project Status
+      options:
+        - Released (Playable)
+        - Work In Progress (WIP)
+        - Concept / Teaser
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author / Team Name
+      placeholder: JustyyDev
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Mod Description / Teaser Summary
+      placeholder: Describe the storyline, roadmap, music style, or features planned.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: "0.1.0-wip"
+    validations:
+      required: true
+  - type: input
+    id: download_url
+    attributes:
+      label: Direct Download URL (.zip) [Optional for WIP]
+      description: Direct link to a .zip release. Leave blank or put "N/A" if this is a WIP / teaser.
+      placeholder: "https://github.com/user/repo/releases/download/v1.0/mod.zip"
+    validations:
+      required: false
+  - type: input
+    id: teaser_url
+    attributes:
+      label: Teaser / Video / Social Link [Optional]
+      description: Link to YouTube teaser, SoundCloud preview, or Twitter/X announcement.
+      placeholder: "https://youtube.com/watch?v=..."
+    validations:
+      required: false
+  - type: input
+    id: banner_url
+    attributes:
+      label: Thumbnail / Concept Art Banner URL
+      placeholder: "https://raw.githubusercontent.com/..."
+    validations:
+      required: false
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary Category
+      options:
+        - Custom Weeks
+        - Visual Shaders
+        - Engine Scripts
+        - Soundtracks
+        - Total Conversions
+    validations:
+      required: true
+  - type: input
+    id: tags
+    attributes:
+      label: Tags (Comma Separated)
+      placeholder: "WIP, Horror, Sneak Peek"
+    validations:
+      required: false

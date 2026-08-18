@@ -1,0 +1,66 @@
+name: Auto-Verify & Publish Mod
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  validate-and-publish:
+    if: contains(github.event.issue.labels.*.name, 'mod-submission')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - name: Checkout HomeSoulDB
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate & Compile Submission
+        id: compiler
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: node scripts/validate_and_compile.js
+
+      - name: Commit & Push Verified Catalog
+        if: success()
+        run: |
+          git config --global user.name "HomeSoulDB-Bot"
+          git config --global user.email "bot@homesouldb.local"
+          git add data/catalog.json
+          git commit -m "Auto-verified mod from Issue #${{ github.event.issue.number }} [skip ci]" || exit 0
+          git push
+
+      - name: Comment Success & Close Issue
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🎉 **Verification Passed!** Your mod has been automatically approved and compiled into the **HomeSoulDB** registry. Players can now discover, bump, and explore it inside **SoulScorch Engine**!"
+            });
+            github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
+
+      - name: Comment Failure Details
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "⚠️ **Verification Failed!** The bot could not verify your submission. Please make sure all required fields are filled and that any provided download URLs point to a live `.zip` file, then edit your issue description to re-trigger the check."
+            });
