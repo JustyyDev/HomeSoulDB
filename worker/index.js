@@ -27,41 +27,10 @@ const sanitizeText = (value, maxLength) =>
     .slice(0, maxLength);
 
 async function ensureSchema(env) {
-  await env.COVE_DB.exec(`CREATE TABLE IF NOT EXISTS presence (
-    username TEXT PRIMARY KEY,
-    gender TEXT NOT NULL,
-    body_color TEXT NOT NULL,
-    payload TEXT NOT NULL,
-    updated_at INTEGER NOT NULL
-  )`);
-
-  await env.COVE_DB.exec(`CREATE TABLE IF NOT EXISTS stands (
-    stand_id TEXT PRIMARY KEY,
-    owner TEXT NOT NULL,
-    mod_title TEXT NOT NULL,
-    billboard_text TEXT NOT NULL,
-    booth_theme TEXT NOT NULL,
-    expires_at INTEGER NOT NULL,
-    payload TEXT NOT NULL,
-    updated_at INTEGER NOT NULL
-  )`);
-
-  await env.COVE_DB.exec(`CREATE TABLE IF NOT EXISTS chat_messages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    author TEXT NOT NULL,
-    text TEXT NOT NULL,
-    timestamp INTEGER NOT NULL
-  )`);
-
-  await env.COVE_DB.exec(`CREATE TABLE IF NOT EXISTS voice_rooms (
-    room_id TEXT PRIMARY KEY,
-    host_stand_id TEXT NOT NULL,
-    room_name TEXT NOT NULL,
-    backend_state TEXT NOT NULL,
-    signaling_path TEXT NOT NULL,
-    payload TEXT NOT NULL,
-    updated_at INTEGER NOT NULL
-  )`);
+  await env.COVE_DB.prepare("CREATE TABLE IF NOT EXISTS presence (username TEXT PRIMARY KEY, gender TEXT NOT NULL, body_color TEXT NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)").run();
+  await env.COVE_DB.prepare("CREATE TABLE IF NOT EXISTS stands (stand_id TEXT PRIMARY KEY, owner TEXT NOT NULL, mod_title TEXT NOT NULL, billboard_text TEXT NOT NULL, booth_theme TEXT NOT NULL, expires_at INTEGER NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)").run();
+  await env.COVE_DB.prepare("CREATE TABLE IF NOT EXISTS chat_messages (id INTEGER PRIMARY KEY AUTOINCREMENT, author TEXT NOT NULL, text TEXT NOT NULL, timestamp INTEGER NOT NULL)").run();
+  await env.COVE_DB.prepare("CREATE TABLE IF NOT EXISTS voice_rooms (room_id TEXT PRIMARY KEY, host_stand_id TEXT NOT NULL, room_name TEXT NOT NULL, backend_state TEXT NOT NULL, signaling_path TEXT NOT NULL, payload TEXT NOT NULL, updated_at INTEGER NOT NULL)").run();
 }
 
 async function getCatalog(env, forceRefresh = false) {
@@ -165,13 +134,14 @@ async function appendChat(env, payload) {
 }
 
 async function routeRequest(request, env) {
-  await ensureSchema(env);
-
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: { 'access-control-allow-origin': '*', 'access-control-allow-methods': 'GET,POST,OPTIONS', 'access-control-allow-headers': 'content-type' } });
 
   const url = new URL(request.url);
 
   if (url.pathname === '/health') return textResponse('ok');
+
+  await ensureSchema(env);
+
   if (url.pathname === '/api/catalog') return json(await getCatalog(env, url.searchParams.get('refresh') === '1'));
   if (url.pathname === '/api/cove/state') return json(await getState(env));
 
