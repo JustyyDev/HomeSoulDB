@@ -49,6 +49,9 @@
 
     <section class="content">
       <div class="content__main">
+        <article class="page-band">
+          <p><strong>Most important idea:</strong> choose the backend based on how close you need to be to the engine runtime, not just which language you personally like.</p>
+        </article>
         <article class="panel copy">
           <h2 class="section-title">Important choices</h2>
           <div class="table-wrap">
@@ -90,6 +93,24 @@ onDestroy()</pre>
             <div class="faq-item"><h3>Keep heavy file access out of update loops</h3><p>Read assets and data once, cache results, and prefer beat, step, event, or timer hooks over per-frame work when possible.</p></div>
           </div>
         </article>
+        <article class="panel copy">
+          <h2 class="section-title">Quick confidence meter</h2>
+          <p>SoulScript is the easiest start. HScript and Iris are the strongest for deep engine work. Python and JavaScript should stay tool-side.</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>SoulScript</h3>
+              <div class="glass-meter"><span style="width: 88%"></span></div>
+            </div>
+            <div class="feature-item">
+              <h3>HScript and Iris</h3>
+              <div class="glass-meter"><span style="width: 96%"></span></div>
+            </div>
+            <div class="feature-item">
+              <h3>Lua</h3>
+              <div class="glass-meter"><span style="width: 72%"></span></div>
+            </div>
+          </div>
+        </article>
       </div>
 
       <aside class="content__side">
@@ -104,5 +125,12 @@ onDestroy()</pre>
       </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span><strong>Scripting page</strong> is intentionally compact now.</span>
+      <span>Keep it focused on decisions, hooks, and rules.</span>
+    </div>
+  </footer>
 </body>
 </html>

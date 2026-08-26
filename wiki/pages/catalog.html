@@ -41,6 +41,9 @@
 
     <section class="content">
       <div class="content__main">
+        <article class="page-band">
+          <p><strong>Live catalog:</strong> this page is the public face of HomeSoulDB and should feel more like a curated channel browser than a raw JSON dump.</p>
+        </article>
         <article class="panel copy">
           <h2 class="section-title">Listings</h2>
           <div id="catalog-status" class="note-block"><small>Loading</small><p>Fetching HomeSoulDB catalog data from the live API.</p></div>
@@ -60,6 +63,13 @@
       </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span><strong>Catalog Browser</strong> should expose real metadata while staying easy to skim.</span>
+      <span>Keep listing cards readable before making them flashy.</span>
+    </div>
+  </footer>
 
   <script>
     const statusNode = document.getElementById('catalog-status');

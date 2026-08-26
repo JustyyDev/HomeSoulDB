@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloudflare Deployment | SoulScorch Wiki</title>
+  <title>Showcase Guide | SoulScorch Wiki</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <div class="site-header__inner">
       <a class="brand" href="../index.html">
         <span class="brand__title">SoulScorch Engine Wiki</span>
-        <span class="brand__sub">Cloud deployment</span>
+        <span class="brand__sub">Showcase guide</span>
       </a>
       <nav class="top-nav">
         <a href="../index.html">Home</a>
@@ -23,7 +23,7 @@
         <a href="./engine-guide.html">Engine Guide</a>
         <a href="./jams.html">Jams</a>
         <a href="./homesoul-cove.html">Cove</a>
-        <a class="is-active" href="./cloudflare-deploy.html">Cloudflare</a>
+        <a class="is-active" href="./showcases.html">Showcases</a>
       </nav>
     </div>
   </header>
@@ -31,64 +31,73 @@
   <main class="layout layout--page">
     <section class="page-hero">
       <div class="panel copy">
-        <p class="eyebrow">Cloudflare Deploy</p>
-        <h1>Use one repo for the wiki, the catalog pipeline, and the HomeSoul Cove API.</h1>
-        <p>This setup keeps the persistent online layer off your local desktop while still letting GitHub stay the source of truth for docs, catalog entries, and deployment automation.</p>
+        <p class="eyebrow">Showcase Guide</p>
+        <h1>Present projects in a way that visitors can understand in seconds.</h1>
+        <p>Most people do not arrive on a site ready to study internal tooling. They arrive wanting to know what the engine is, what creators are building with it, and which projects or events are worth clicking first.</p>
       </div>
       <div class="note-block">
-        <small>Recommended domain split</small>
-        <p>`api.soulscorch.org` for the Worker API, `wiki.soulscorch.org` for docs, and your current Vercel-bound root domain left untouched unless you explicitly want to migrate it later.</p>
+        <small>Visitor rule</small>
+        <p>Lead with identity, mood, a short pitch, and one strong image or stand concept. Do not bury the interesting part under process talk.</p>
       </div>
     </section>
 
     <section class="content">
       <div class="content__main">
+        <article class="page-band">
+          <p><strong>Showcase principle:</strong> the first ten seconds should tell a visitor what the project is, why it matters, and what kind of experience it promises.</p>
+        </article>
         <article class="panel copy">
-          <h2 class="section-title">Deployment pieces</h2>
+          <h2 class="section-title">What every showcase should communicate</h2>
           <div class="feature-list">
             <div class="feature-item">
-              <h3>Cloudflare Pages</h3>
-              <p>Serves the static wiki from the `wiki/` folder. No framework build is required for the current site.</p>
+              <h3>Immediate identity</h3>
+              <p>Name the project clearly and give it a visual hook or memorable theme line.</p>
             </div>
             <div class="feature-item">
-              <h3>Cloudflare Worker</h3>
-              <p>Serves API routes for catalog access, Cove presence, chat, and voice-room metadata from `worker/index.js`.</p>
+              <h3>Playable focus</h3>
+              <p>Tell people whether it is a mod, a full game, a prototype, or an art-heavy concept build.</p>
             </div>
             <div class="feature-item">
-              <h3>D1 and KV</h3>
-              <p>D1 handles structured runtime state. KV handles cache-friendly content such as catalog responses.</p>
+              <h3>Readable pitch</h3>
+              <p>Billboard text and short blurbs should be tight enough to skim quickly in a catalog or on a stand.</p>
             </div>
             <div class="feature-item">
-              <h3>GitHub Actions</h3>
-              <p>Validates HomeSoulDB submissions and can deploy Worker or Pages changes from the repo.</p>
+              <h3>Event context</h3>
+              <p>If a project is part of a jam, say which event it belongs to and what category it fits.</p>
             </div>
           </div>
         </article>
 
         <article class="panel copy">
-          <h2 class="section-title">Root settings</h2>
-          <pre class="code-panel">Pages project name: homesouldb-wiki
-Production branch: main
-Framework preset: None
-Build command: leave blank
-Output directory: wiki
-Root directory: /
-
-Worker project name: homesouldb-cove-api
-Deploy command: npx wrangler deploy --config wrangler.toml --name homesouldb-cove-api</pre>
+          <h2 class="section-title">Good showcase checklist</h2>
+          <pre class="code-panel">Project name
+Short pitch line
+Clear genre or format
+Screenshot or stand concept
+Why it stands out
+Jam or release context
+One call to action</pre>
         </article>
       </div>
 
       <aside class="content__side">
         <article class="panel copy">
-          <p class="panel__label">Need the full checklist?</p>
+          <p class="panel__label">Pair with</p>
           <ul class="link-list">
-            <li><a href="../../CLOUDFLARE_SETUP.md">Open Cloudflare setup guide in repo</a></li>
-            <li><a href="./homesoul-cove.html">Review Cove API scope</a></li>
+            <li><a href="./catalog.html">Catalog browser</a></li>
+            <li><a href="./homesoul-cove.html">HomeSoul Cove</a></li>
+            <li><a href="./jams.html">Jam roster</a></li>
           </ul>
         </article>
       </aside>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span><strong>Showcases</strong> should make people curious fast.</span>
+      <span>Clarity beats process talk on public pages.</span>
+    </div>
+  </footer>
 </body>
 </html>

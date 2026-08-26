@@ -26,11 +26,11 @@
       </nav>
     </div>
   </header>
-  <header class="hero">
+  <header class="hero hero--channel">
     <div class="hero__inner">
       <p class="eyebrow">SoulScorch Engine</p>
       <h1>A real engine site for building rhythm games, homebrew worlds, and jam-ready showcases.</h1>
-      <p class="lede">SoulScorch started from an FNF base, but it is being documented and shaped as a broader engine. This wiki covers the full stack from songs and stages to scripting, multiplayer-facing plaza systems, cloud deployment, and community events.</p>
+      <p class="lede">SoulScorch started from an FNF base, but it is being documented and shaped as a broader engine. This wiki covers the creator-facing side of that work: songs, stages, scripting, project structure, mod showcases, and community events.</p>
       <div class="hero__actions">
         <a href="./pages/getting-started.html" class="button button--primary">Read the wiki</a>
         <a href="./pages/jams.html" class="button button--ghost">View the jam board</a>
@@ -38,16 +38,36 @@
       <div class="stat-strip">
         <div class="stat">
           <strong>7</strong>
-          <span>core docs tracks from setup to deployment</span>
+          <span>core docs tracks from setup to showcases</span>
         </div>
         <div class="stat">
           <strong>6</strong>
           <span>scripting backends already supported by the engine</span>
         </div>
         <div class="stat">
-          <strong>24/7</strong>
-          <span>Cloudflare-hosted API path for HomeSoul Cove and HomeSoulDB</span>
+          <strong>Live</strong>
+          <span>catalog-driven showcases and an active jam board for community projects</span>
         </div>
+      </div>
+      <div class="channel-grid">
+        <a class="channel" href="./pages/getting-started.html">
+          <div class="channel__orb"></div>
+          <h2 class="channel__title">Start Here</h2>
+          <div class="channel__meta">Setup track</div>
+          <p class="channel__body">Learn the repo shape, creator workflow, and where the engine ends and the service layer begins.</p>
+        </a>
+        <a class="channel" href="./pages/engine-guide.html">
+          <div class="channel__orb"></div>
+          <h2 class="channel__title">Engine Guide</h2>
+          <div class="channel__meta">Architecture</div>
+          <p class="channel__body">Understand what SoulScorch already supports and how the current codebase is organized.</p>
+        </a>
+        <a class="channel" href="./pages/jams.html">
+          <div class="channel__orb"></div>
+          <h2 class="channel__title">Jam Board</h2>
+          <div class="channel__meta">Community</div>
+          <p class="channel__body">Track active and upcoming events, public rosters, and the projects being built around them.</p>
+        </a>
       </div>
     </div>
   </header>
@@ -65,9 +85,9 @@
         <p>Listings can advertise billboard copy, showcase themes, avatar-ready booths, jam support, and multiplayer-facing metadata for HomeSoul Cove.</p>
       </article>
       <article class="card">
-        <p class="card__tag">Cloudflare</p>
-        <h2>Cloudflare keeps the online layer running.</h2>
-        <p>The Worker API exposes catalog, presence, stand, chat, and signaling metadata endpoints without requiring your local machine to stay online.</p>
+        <p class="card__tag">Showcases</p>
+        <h2>Projects can be presented as living showcases, not just static downloads.</h2>
+        <p>The site, the catalog, and HomeSoul Cove can all reinforce how a project is described, discovered, and remembered.</p>
       </article>
       <article class="card">
         <p class="card__tag">Editors</p>
@@ -86,14 +106,14 @@
           <li><a href="./pages/archive.html">Jam Archive</a></li>
           <li><a href="./pages/catalog.html">Catalog Browser</a></li>
           <li><a href="./pages/homesoul-cove.html">HomeSoul Cove</a></li>
-          <li><a href="./pages/cloudflare-deploy.html">Cloudflare Deployment</a></li>
+          <li><a href="./pages/showcases.html">Showcase Guide</a></li>
         </ul>
       </div>
       <div class="panel panel--terminal">
         <p class="panel__label">What The Site Covers</p>
-        <pre>Engine architecture   -> HaxeFlixel + OpenFL + Lime
-Mod data layer        -> XMSoul + registry + scripts
-Community stack       -> HomeSoulDB + HomeSoul Cove
+        <pre>Engine structure      -> songs, stages, states, tools
+Scripting             -> six supported backends
+Showcases             -> HomeSoulDB and HomeSoul Cove presentation
 Events                -> game jams, mod jams, stands, rosters</pre>
       </div>
     </section>
@@ -111,7 +131,7 @@ Events                -> game jams, mod jams, stands, rosters</pre>
             <span class="pill">Shaders</span>
             <span class="pill">3D plaza work</span>
             <span class="pill">Replays</span>
-            <span class="pill">Cloud API</span>
+            <span class="pill">Showcases</span>
           </div>
         </article>
 
@@ -144,17 +164,21 @@ Events                -> game jams, mod jams, stands, rosters</pre>
           </ul>
         </article>
         <article class="note-block">
-          <small>Current online routes</small>
-          <p>`api.soulscorch.org` is the live Worker API. The docs site can live on `wiki.soulscorch.org` while the main Vercel site keeps serving existing work.</p>
+          <small>Visitor focus</small>
+          <p>This site is for learning the engine, browsing showcases, and following community events. Keep the public language centered on those goals.</p>
         </article>
       </aside>
+    </section>
+
+    <section class="page-band">
+      <p><strong>Current mood:</strong> bright homebrew console channel, creator-first docs, standout showcases, and a community rhythm scene that feels alive.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
       <span>SoulScorch Engine Wiki</span>
-      <span>Built from the HomeSoulDB repo for docs, jams, and HomeSoul Cove infrastructure.</span>
+      <span>Built as a public-facing home for engine docs, showcases, and community events.</span>
     </div>
   </footer>
 </body>
