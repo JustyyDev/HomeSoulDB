@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare Deployment | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="layout" style="padding:48px 0 64px;">
+    <p class="eyebrow">Cloudflare Deploy</p>
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">Use one repo for the wiki and the Cove API.</h1>
+    <section class="card-grid">
+      <article class="card">
+        <h2>Cloudflare Pages</h2>
+        <p>Create a Pages project from this repo and set the output directory to `wiki`. Bind it to `www.soulscorch.org`.</p>
+      </article>
+      <article class="card">
+        <h2>Cloudflare Worker</h2>
+        <p>Deploy `worker/index.js` with Wrangler. Bind the Worker to `api.soulscorch.org` and configure D1 plus KV with the IDs in `wrangler.toml`.</p>
+      </article>
+      <article class="card">
+        <h2>GitHub Actions</h2>
+        <p>Keep Actions for validation and registry publishing only. Do not use it as the live multiplayer host.</p>
+      </article>
+    </section>
+    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+  </main>
+</body>
+</html>

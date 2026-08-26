@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoulScorch Engine Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">SoulScorch Engine</p>
+      <h1>Homebrew wiki, mod registry, and HomeSoul Cove control deck.</h1>
+      <p class="lede">This repo can now power both the public documentation on soulscorch.org and the always-on Cloudflare API behind HomeSoul Cove.</p>
+      <div class="hero__actions">
+        <a href="./pages/getting-started.html" class="button button--primary">Read the wiki</a>
+        <a href="./pages/cloudflare-deploy.html" class="button button--ghost">Deploy on Cloudflare</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="card-grid">
+      <article class="card">
+        <p class="card__tag">Engine</p>
+        <h2>Build actual games on the FNF base.</h2>
+        <p>SoulScorch is documented as an engine, not only a mod runtime. The wiki is structured around engine setup, 3D systems, scripting, packaging, and mod jams.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">Marketplace</p>
+        <h2>HomeSoulDB powers the catalog.</h2>
+        <p>Catalog entries can advertise billboard text, jam support, chat compatibility, and avatar showcase metadata for HomeSoul Cove stands.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">Cloudflare</p>
+        <h2>Worker API keeps the Cove online.</h2>
+        <p>The Worker exposes realtime-friendly HTTP endpoints for plaza presence, stands, chat, and voice-room signaling metadata without requiring your desktop to stay on.</p>
+      </article>
+    </section>
+
+    <section class="split">
+      <div class="panel">
+        <p class="panel__label">Wiki Sections</p>
+        <ul class="link-list">
+          <li><a href="./pages/getting-started.html">Getting Started</a></li>
+          <li><a href="./pages/homesoul-cove.html">HomeSoul Cove</a></li>
+          <li><a href="./pages/cloudflare-deploy.html">Cloudflare Deployment</a></li>
+        </ul>
+      </div>
+      <div class="panel panel--terminal">
+        <p class="panel__label">Recommended routes</p>
+        <pre>www.soulscorch.org   -> Cloudflare Pages wiki
+api.soulscorch.org   -> Cloudflare Worker API
+raw catalog source   -> GitHub + Actions validation</pre>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

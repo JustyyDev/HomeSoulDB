@@ -1,0 +1,20 @@
+{
+  "name": "homesouldb",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HomeSoulDB wiki and HomeSoul Cove Cloudflare runtime",
+  "scripts": {
+    "docs:dev": "npx serve wiki",
+    "worker:dev": "wrangler dev",
+    "deploy:worker": "wrangler deploy",
+    "deploy:wiki": "wrangler pages deploy wiki --project-name homesouldb-wiki",
+    "db:migrate:local": "wrangler d1 migrations apply homesouldb-cove --local",
+    "db:migrate:remote": "wrangler d1 migrations apply homesouldb-cove --remote",
+    "check:worker": "node --check worker/index.js",
+    "check:catalog": "node --check scripts/validate_and_compile.js",
+    "check:server": "node --check server/homesoul_cove_server.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.31.0"
+  }
+}

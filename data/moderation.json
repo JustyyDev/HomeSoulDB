@@ -1,0 +1,17 @@
+{
+  "reservedUsernames": [
+    "admin",
+    "moderator",
+    "system",
+    "homesoul",
+    "homesouldb"
+  ],
+  "blockedTerms": [
+    "slur",
+    "hate",
+    "nazi"
+  ],
+  "billboardMaxLength": 84,
+  "usernameMinLength": 2,
+  "usernameMaxLength": 18
+}

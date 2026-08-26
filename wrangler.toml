@@ -1,0 +1,21 @@
+name = "homesouldb-cove-api"
+main = "worker/index.js"
+compatibility_date = "2026-08-26"
+
+[vars]
+CATALOG_URL = "https://raw.githubusercontent.com/JustyyDev/HomeSoulDB/main/data/catalog.json"
+MODERATION_URL = "https://raw.githubusercontent.com/JustyyDev/HomeSoulDB/main/data/moderation.json"
+
+[[kv_namespaces]]
+binding = "COVE_CACHE"
+id = "replace-with-cloudflare-kv-id"
+preview_id = "replace-with-cloudflare-kv-preview-id"
+
+[[d1_databases]]
+binding = "COVE_DB"
+database_name = "homesouldb-cove"
+database_id = "replace-with-cloudflare-d1-id"
+migrations_dir = "migrations"
+
+[observability]
+enabled = true

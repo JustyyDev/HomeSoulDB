@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="layout" style="padding:48px 0 64px;">
+    <p class="eyebrow">Getting Started</p>
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">Set up SoulScorch as an engine.</h1>
+    <section class="card-grid">
+      <article class="card">
+        <h2>1. Clone the engine</h2>
+        <p>Keep the engine repo and HomeSoulDB side by side so catalog changes, plaza runtime work, and Cloudflare deployment can evolve together.</p>
+      </article>
+      <article class="card">
+        <h2>2. Use HomeSoulDB for the online layer</h2>
+        <p>Catalog validation lives in GitHub Actions. The Worker API hosts HomeSoul Cove state. The wiki explains both from the same repo.</p>
+      </article>
+      <article class="card">
+        <h2>3. Point the engine to the API</h2>
+        <p>Set the engine's Cove API base URL to `https://api.soulscorch.org` once the Worker is deployed.</p>
+      </article>
+    </section>
+    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+  </main>
+</body>
+</html>

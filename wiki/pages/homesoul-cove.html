@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeSoul Cove | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <main class="layout" style="padding:48px 0 64px;">
+    <p class="eyebrow">HomeSoul Cove</p>
+    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">A 3D homebrew plaza backed by HomeSoulDB.</h1>
+    <section class="split">
+      <div class="panel">
+        <p class="panel__label">Features</p>
+        <ul class="link-list">
+          <li>Persistent player profiles with simple generated avatars</li>
+          <li>Claimable stands with short billboard copy</li>
+          <li>Catalog submissions routed through HomeSoulDB</li>
+          <li>Text chat and voice-room signaling metadata</li>
+          <li>Jam-ready exhibition metadata for booths</li>
+        </ul>
+      </div>
+      <div class="panel panel--terminal">
+        <p class="panel__label">Core endpoints</p>
+        <pre>POST /api/cove/presence
+GET  /api/cove/state
+POST /api/cove/chat
+GET  /api/cove/voice/:standId</pre>
+      </div>
+    </section>
+    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+  </main>
+</body>
+</html>

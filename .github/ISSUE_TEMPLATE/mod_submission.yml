@@ -95,3 +95,37 @@ body:
       placeholder: "WIP, Horror, Sneak Peek"
     validations:
       required: false
+  - type: input
+    id: booth_text
+    attributes:
+      label: HomeSoul Cove Billboard Text
+      description: Keep it short enough to stay readable on an in-world stand billboard.
+      placeholder: "Playable build live at my stand. Come try the songs."
+    validations:
+      required: false
+  - type: dropdown
+    id: avatar_showcase
+    attributes:
+      label: Avatar / Character Showcase Support
+      options:
+        - Yes, showcase my custom character presentation
+        - No, standard listing only
+    validations:
+      required: true
+  - type: checkboxes
+    id: cove_features
+    attributes:
+      label: HomeSoul Cove Multiplayer Hooks
+      options:
+        - label: Text chat compatible
+        - label: Voice chat room compatible
+        - label: Stand / booth showcase ready
+        - label: Fits game jam or mod jam exhibition spaces
+  - type: input
+    id: compatible_modes
+    attributes:
+      label: Compatible Modes (Comma Separated)
+      description: Example: singleplayer, plaza-multiplayer, couch-coop
+      placeholder: "singleplayer, plaza-multiplayer"
+    validations:
+      required: false
