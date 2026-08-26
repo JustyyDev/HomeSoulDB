@@ -10,24 +10,99 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <main class="layout" style="padding:48px 0 64px;">
-    <p class="eyebrow">Getting Started</p>
-    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">Set up SoulScorch as an engine.</h1>
-    <section class="card-grid">
-      <article class="card">
-        <h2>1. Clone the engine</h2>
-        <p>Keep the engine repo and HomeSoulDB side by side so catalog changes, plaza runtime work, and Cloudflare deployment can evolve together.</p>
-      </article>
-      <article class="card">
-        <h2>2. Use HomeSoulDB for the online layer</h2>
-        <p>Catalog validation lives in GitHub Actions. The Worker API hosts HomeSoul Cove state. The wiki explains both from the same repo.</p>
-      </article>
-      <article class="card">
-        <h2>3. Point the engine to the API</h2>
-        <p>Set the engine's Cove API base URL to `https://api.soulscorch.org` once the Worker is deployed.</p>
-      </article>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Start here</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="./getting-started.html">Start Here</a>
+        <a href="./engine-guide.html">Engine Guide</a>
+        <a href="./scripting.html">Scripting</a>
+        <a href="./jams.html">Jams</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">Getting Started</p>
+        <h1>Set up SoulScorch with the right expectations and the right folder layout.</h1>
+        <p>SoulScorch is still homebrew software. That is part of its appeal, but it also means a good start matters. Keep the engine repo clean, keep your mods isolated, and understand the difference between engine code, data files, and cloud-side services.</p>
+      </div>
+      <div class="panel copy">
+        <p class="panel__label">Starter stack</p>
+        <div class="pill-row">
+          <span class="pill">Haxe</span>
+          <span class="pill">HaxeFlixel</span>
+          <span class="pill">OpenFL</span>
+          <span class="pill">Lime</span>
+          <span class="pill">HomeSoulDB</span>
+        </div>
+      </div>
     </section>
-    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">Step 1. Keep the repos side by side</h2>
+          <p>The engine and the docs or API repo are easiest to reason about when they sit next to each other. That keeps mod registry changes, wiki changes, and runtime fixes moving together without mixing concerns into one codebase.</p>
+          <pre class="code-panel">Contributions/
+|- SoulScorch-Engine/
+|- HomeSoulDB/</pre>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Step 2. Learn the three layers</h2>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>Engine layer</h3>
+              <p>Gameplay, notes, cameras, states, cutscenes, scripts, and rendering all live inside SoulScorch Engine.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Mod layer</h3>
+              <p>Most project-specific content should live in a mod folder with its own assets, metadata, and scripts.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Service layer</h3>
+              <p>HomeSoulDB and HomeSoul Cove handle discovery, stand metadata, jam rosters, and online-facing API features.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Step 3. Pick your first goal</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Goal</th><th>Where to focus</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Make a simple song mod</td><td>Assets, charts, metadata, and the beginner modding path</td></tr>
+                <tr><td>Add custom behavior</td><td>SoulScript, HScript, Lua, or Iris in the scripting layer</td></tr>
+                <tr><td>Build a bigger game</td><td>Custom states, menus, stages, events, packaging, and broader project structure</td></tr>
+                <tr><td>Put it online</td><td>HomeSoulDB catalog data, HomeSoul Cove stand metadata, Cloudflare deployment</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Read next</p>
+          <ul class="link-list">
+            <li><a href="./engine-guide.html">Engine Guide</a></li>
+            <li><a href="./scripting.html">Scripting</a></li>
+            <li><a href="./cloudflare-deploy.html">Cloudflare Deployment</a></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
   </main>
 </body>
 </html>

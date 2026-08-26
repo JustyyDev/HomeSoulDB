@@ -10,24 +10,85 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <main class="layout" style="padding:48px 0 64px;">
-    <p class="eyebrow">Cloudflare Deploy</p>
-    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">Use one repo for the wiki and the Cove API.</h1>
-    <section class="card-grid">
-      <article class="card">
-        <h2>Cloudflare Pages</h2>
-        <p>Create a Pages project from this repo and set the output directory to `wiki`. Bind it to `www.soulscorch.org`.</p>
-      </article>
-      <article class="card">
-        <h2>Cloudflare Worker</h2>
-        <p>Deploy `worker/index.js` with Wrangler. Bind the Worker to `api.soulscorch.org` and configure D1 plus KV with the IDs in `wrangler.toml`.</p>
-      </article>
-      <article class="card">
-        <h2>GitHub Actions</h2>
-        <p>Keep Actions for validation and registry publishing only. Do not use it as the live multiplayer host.</p>
-      </article>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Cloud deployment</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="./getting-started.html">Start Here</a>
+        <a href="./engine-guide.html">Engine Guide</a>
+        <a href="./jams.html">Jams</a>
+        <a href="./homesoul-cove.html">Cove</a>
+        <a class="is-active" href="./cloudflare-deploy.html">Cloudflare</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">Cloudflare Deploy</p>
+        <h1>Use one repo for the wiki, the catalog pipeline, and the HomeSoul Cove API.</h1>
+        <p>This setup keeps the persistent online layer off your local desktop while still letting GitHub stay the source of truth for docs, catalog entries, and deployment automation.</p>
+      </div>
+      <div class="note-block">
+        <small>Recommended domain split</small>
+        <p>`api.soulscorch.org` for the Worker API, `wiki.soulscorch.org` for docs, and your current Vercel-bound root domain left untouched unless you explicitly want to migrate it later.</p>
+      </div>
     </section>
-    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">Deployment pieces</h2>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>Cloudflare Pages</h3>
+              <p>Serves the static wiki from the `wiki/` folder. No framework build is required for the current site.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Cloudflare Worker</h3>
+              <p>Serves API routes for catalog access, Cove presence, chat, and voice-room metadata from `worker/index.js`.</p>
+            </div>
+            <div class="feature-item">
+              <h3>D1 and KV</h3>
+              <p>D1 handles structured runtime state. KV handles cache-friendly content such as catalog responses.</p>
+            </div>
+            <div class="feature-item">
+              <h3>GitHub Actions</h3>
+              <p>Validates HomeSoulDB submissions and can deploy Worker or Pages changes from the repo.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Root settings</h2>
+          <pre class="code-panel">Pages project name: homesouldb-wiki
+Production branch: main
+Framework preset: None
+Build command: leave blank
+Output directory: wiki
+Root directory: /
+
+Worker project name: homesouldb-cove-api
+Deploy command: npx wrangler deploy --config wrangler.toml --name homesouldb-cove-api</pre>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Need the full checklist?</p>
+          <ul class="link-list">
+            <li><a href="../../CLOUDFLARE_SETUP.md">Open Cloudflare setup guide in repo</a></li>
+            <li><a href="./homesoul-cove.html">Review Cove API scope</a></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
   </main>
 </body>
 </html>

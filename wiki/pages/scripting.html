@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scripting | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Scripting</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="./getting-started.html">Start Here</a>
+        <a href="./engine-guide.html">Engine Guide</a>
+        <a class="is-active" href="./scripting.html">Scripting</a>
+        <a href="./jams.html">Jams</a>
+        <a href="./homesoul-cove.html">Cove</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">Scripting</p>
+        <h1>Pick the backend that matches your project instead of forcing one language everywhere.</h1>
+        <p>SoulScorch supports multiple scripting styles because creators want different levels of control. Some people want readable event-style actions. Some want direct Haxe objects. Some want Lua familiarity. Some want Python or JavaScript for tool-side work.</p>
+      </div>
+      <div class="panel copy">
+        <p class="panel__label">Supported backends</p>
+        <div class="pill-row">
+          <span class="pill">SoulScript</span>
+          <span class="pill">HScript</span>
+          <span class="pill">Iris</span>
+          <span class="pill">Lua</span>
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">Which one should you use?</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Backend</th><th>Best use</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>SoulScript</td><td>Readable timing-based gameplay and menu scripting</td></tr>
+                <tr><td>HScript and Iris</td><td>Deep engine control with direct access to gameplay objects</td></tr>
+                <tr><td>Lua</td><td>Familiar FNF-style mod scripting on supported targets</td></tr>
+                <tr><td>Python</td><td>Desktop-only tool callbacks and external process helpers</td></tr>
+                <tr><td>JavaScript</td><td>Desktop-only Node process hooks and utility tasks</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Common callbacks</h2>
+          <pre class="code-panel">create()
+onCreate()
+onPostCreate()
+onSongStart()
+onUpdate(elapsed)
+onUpdatePost(elapsed)
+onBeatHit(beat)
+onStepHit(step)
+onDestroy()</pre>
+    <p>Gameplay scripts can also hook note hits, misses, health changes, pause flow, and event triggers. Some callbacks can be cancelable so a script can prevent the default action.</p>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Practical advice</h2>
+          <div class="faq">
+            <div class="faq-item"><h3>Use SoulScript when you want readable behavior</h3><p>It is good for modders who want timing, simple conditions, and engine-friendly commands without diving deep into object internals.</p></div>
+            <div class="faq-item"><h3>Use HScript when you need real engine reach</h3><p>It is the path for custom states, advanced gameplay hooks, and direct object work without recompiling the engine.</p></div>
+            <div class="faq-item"><h3>Use Python and JavaScript for side work</h3><p>Those backends are external process bridges. They are better for tools and occasional automation than per-frame gameplay logic.</p></div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Related tracks</p>
+          <ul class="link-list">
+            <li><a href="./engine-guide.html">Engine guide</a></li>
+            <li><a href="./getting-started.html">Start here</a></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

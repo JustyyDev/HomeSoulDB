@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engine Guide | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Engine guide</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="./getting-started.html">Start Here</a>
+        <a class="is-active" href="./engine-guide.html">Engine Guide</a>
+        <a href="./scripting.html">Scripting</a>
+        <a href="./jams.html">Jams</a>
+        <a href="./homesoul-cove.html">Cove</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">Engine Guide</p>
+        <h1>How SoulScorch is put together and what it already supports.</h1>
+        <p>SoulScorch is built with Haxe, HaxeFlixel, OpenFL, and Lime. Its current architecture mixes gameplay systems, data-driven asset loading, multiple scripting backends, editor tooling, and online-facing services without losing the feel of a community engine.</p>
+      </div>
+      <div class="panel copy">
+        <p class="panel__label">Core stack</p>
+        <div class="pill-row">
+          <span class="pill">Haxe</span>
+          <span class="pill">HaxeFlixel</span>
+          <span class="pill">OpenFL</span>
+          <span class="pill">Lime</span>
+          <span class="pill">Away3D experiments</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">Feature areas</h2>
+          <div class="feature-list">
+            <div class="feature-item"><h3>Gameplay</h3><p>Song loading, charts, notes, strumlines, scoring, judgments, song events, pauses, and game over flow.</p></div>
+            <div class="feature-item"><h3>Content pipeline</h3><p>Characters, stages, songs, dialogues, weeks, metadata, noteskins, splashes, and mod manifests.</p></div>
+            <div class="feature-item"><h3>Scripting</h3><p>SoulScript, HScript, Iris, Lua, Python, and JavaScript support with different levels of engine access.</p></div>
+            <div class="feature-item"><h3>Tools and editors</h3><p>Chart, stage, character, and modchart tooling already exist and form the basis of a longer creator workflow.</p></div>
+            <div class="feature-item"><h3>Presentation</h3><p>Shaders, cutscenes, dialogue, camera controls, freeplay previews, and menu systems are all first-class engine concerns.</p></div>
+            <div class="feature-item"><h3>Online layer</h3><p>HomeSoulDB and HomeSoul Cove add catalog discovery, stand metadata, event rosters, and API-backed services.</p></div>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Project structure</h2>
+          <pre class="code-panel">SoulScorch-Engine/
+|- source/               engine states, gameplay, systems, editors
+|- assets/preload/       built-in art, data, songs, languages, shaders
+|- mods/                 local and installed mods
+|- commandline/          utility commands and packager helpers
+|- docs/                 deeper markdown documentation
+|- tools/                conversion and build helper scripts
+|- project.xml           Lime project definition
+|- build.bat             target build menu</pre>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Current supported output</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Area</th><th>Support</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Desktop</td><td>Windows, Linux, macOS style workflows with C++ and HashLink paths</td></tr>
+                <tr><td>Mobile</td><td>Android and iOS oriented support with resource constraints in mind</td></tr>
+                <tr><td>Web</td><td>HTML5 build path exists for lighter web deployment cases</td></tr>
+                <tr><td>Standalone mods</td><td>Packager flow for exporting standalone mod distributions</td></tr>
+                <tr><td>Cloud services</td><td>HomeSoulDB catalog and HomeSoul Cove API via Cloudflare</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Go deeper</p>
+          <ul class="link-list">
+            <li><a href="./scripting.html">Scripting guide</a></li>
+            <li><a href="./homesoul-cove.html">HomeSoul Cove</a></li>
+            <li><a href="./cloudflare-deploy.html">Cloudflare deployment</a></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>

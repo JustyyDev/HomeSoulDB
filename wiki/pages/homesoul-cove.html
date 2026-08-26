@@ -10,29 +10,94 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <main class="layout" style="padding:48px 0 64px;">
-    <p class="eyebrow">HomeSoul Cove</p>
-    <h1 style="font-size:clamp(2.2rem,6vw,4rem);">A 3D homebrew plaza backed by HomeSoulDB.</h1>
-    <section class="split">
-      <div class="panel">
-        <p class="panel__label">Features</p>
-        <ul class="link-list">
-          <li>Persistent player profiles with simple generated avatars</li>
-          <li>Claimable stands with short billboard copy</li>
-          <li>Catalog submissions routed through HomeSoulDB</li>
-          <li>Text chat and voice-room signaling metadata</li>
-          <li>Jam-ready exhibition metadata for booths</li>
-        </ul>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">HomeSoul Cove</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="./getting-started.html">Start Here</a>
+        <a href="./engine-guide.html">Engine Guide</a>
+        <a href="./scripting.html">Scripting</a>
+        <a href="./jams.html">Jams</a>
+        <a class="is-active" href="./homesoul-cove.html">Cove</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">HomeSoul Cove</p>
+        <h1>A 3D showcase plaza where projects, players, and jams can meet.</h1>
+        <p>HomeSoul Cove is the social-facing layer of the SoulScorch ecosystem. It is where a user can enter the engine, generate a simple identity, claim a stand, advertise a project, and browse what other people are building.</p>
       </div>
-      <div class="panel panel--terminal">
-        <p class="panel__label">Core endpoints</p>
-        <pre>POST /api/cove/presence
-GET  /api/cove/state
-POST /api/cove/chat
-GET  /api/cove/voice/:standId</pre>
+      <div class="panel copy">
+        <p class="panel__label">Current prototype scope</p>
+        <div class="pill-row">
+          <span class="pill">Profiles</span>
+          <span class="pill">Stands</span>
+          <span class="pill">Billboards</span>
+          <span class="pill">Text chat</span>
+          <span class="pill">Voice room metadata</span>
+        </div>
       </div>
     </section>
-    <p><a href="../index.html" class="button button--ghost">Back to front page</a></p>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">What the Cove is for</h2>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>Project discovery</h3>
+              <p>Creators can pitch a game or mod inside a shared 3D environment instead of relying only on social posts and repository links.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Community presence</h3>
+              <p>The Cove gives SoulScorch a public social shell where showcases, testing sessions, and jam floors can live.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Event presentation</h3>
+              <p>Jams can use booth rotations, event rosters, short billboard text, and voice-room contracts to make exhibitions feel organized.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">Core runtime flow</h2>
+          <div class="timeline">
+            <div class="timeline-item"><small>Entry</small><p>First visit asks for a username and a body type. The engine stores that locally and generates a base avatar.</p></div>
+            <div class="timeline-item"><small>Exploration</small><p>Players move through the plaza with mouse look and keyboard movement while discovering open or claimed stands.</p></div>
+            <div class="timeline-item"><small>Stand claim</small><p>A creator claims a stand, writes short billboard copy, and stores a HomeSoulDB-ready submission draft in-engine.</p></div>
+            <div class="timeline-item"><small>Sync</small><p>The Cove service syncs presence, stand leases, and chat metadata toward the online API when configured.</p></div>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <h2 class="section-title">API routes</h2>
+          <pre class="code-panel">POST /api/cove/presence
+GET  /api/cove/state
+POST /api/cove/chat
+GET  /api/cove/voice/:standId
+GET  /api/catalog</pre>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Related pages</p>
+          <ul class="link-list">
+            <li><a href="./jams.html">Jam roster and events</a></li>
+            <li><a href="./cloudflare-deploy.html">Cloudflare deployment</a></li>
+            <li><a href="./engine-guide.html">Engine structure</a></li>
+          </ul>
+        </article>
+      </aside>
+    </section>
   </main>
 </body>
 </html>

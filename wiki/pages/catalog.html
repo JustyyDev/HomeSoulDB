@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog Browser | SoulScorch Wiki</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Catalog browser</span>
+      </a>
+      <nav class="top-nav">
+        <a href="../index.html">Home</a>
+        <a href="./docs-index.html">Docs Index</a>
+        <a href="./jams.html">Jams</a>
+        <a class="is-active" href="./catalog.html">Catalog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout layout--page">
+    <section class="page-hero">
+      <div class="panel copy">
+        <p class="eyebrow">Catalog Browser</p>
+        <h1>Browse live HomeSoulDB data from the SoulScorch API.</h1>
+        <p>This page reads from `https://api.soulscorch.org/api/catalog` and renders a human-facing browser for live listings, stand copy, and compatibility metadata.</p>
+      </div>
+      <div class="note-block">
+        <small>Live source</small>
+        <p>If the API is online, this page updates without rebuilding the wiki. If not, it shows a useful error state instead of a blank screen.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="content__main">
+        <article class="panel copy">
+          <h2 class="section-title">Listings</h2>
+          <div id="catalog-status" class="note-block"><small>Loading</small><p>Fetching HomeSoulDB catalog data from the live API.</p></div>
+          <div id="catalog-grid" class="card-grid card-grid--tight"></div>
+        </article>
+      </div>
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Field focus</p>
+          <ul>
+            <li>Status and author</li>
+            <li>Billboard text</li>
+            <li>Compatible modes</li>
+            <li>Jam showcase and chat flags</li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const statusNode = document.getElementById('catalog-status');
+    const gridNode = document.getElementById('catalog-grid');
+
+    function setStatus(label, body) {
+      statusNode.innerHTML = `<small>${label}</small><p>${body}</p>`;
+    }
+
+    function renderEntry(entry) {
+      const article = document.createElement('article');
+      article.className = 'card';
+      const modes = Array.isArray(entry.compatibleModes) ? entry.compatibleModes.join(', ') : 'singleplayer';
+      article.innerHTML = `
+        <p class="card__tag">${entry.status || 'Unknown status'}</p>
+        <h2>${entry.title || 'Untitled project'}</h2>
+        <p><strong>By:</strong> ${entry.author || 'Unknown author'}</p>
+        <p>${entry.description || 'No description provided.'}</p>
+        <p><strong>Billboard:</strong> ${entry.boothText || 'No booth text yet.'}</p>
+        <p><strong>Modes:</strong> ${modes}</p>
+        <p><strong>Jam ready:</strong> ${entry.supportsJamShowcase ? 'Yes' : 'No'} | <strong>Text chat:</strong> ${entry.supportsTextChat ? 'Yes' : 'No'} | <strong>Voice:</strong> ${entry.supportsVoiceChat ? 'Yes' : 'No'}</p>
+      `;
+      return article;
+    }
+
+    fetch('https://api.soulscorch.org/api/catalog')
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((catalog) => {
+        gridNode.innerHTML = '';
+        if (!Array.isArray(catalog) || catalog.length === 0) {
+          setStatus('Empty', 'The API is online but the catalog is currently empty.');
+          return;
+        }
+        setStatus('Live', `Loaded ${catalog.length} catalog entr${catalog.length === 1 ? 'y' : 'ies'} from the API.`);
+        catalog.forEach((entry) => gridNode.appendChild(renderEntry(entry)));
+      })
+      .catch((error) => {
+        setStatus('Error', `Could not load the live catalog: ${error.message}`);
+      });
+  </script>
+</body>
+</html>

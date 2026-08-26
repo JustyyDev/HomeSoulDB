@@ -11,34 +11,71 @@
 </head>
 <body>
   <div class="noise"></div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="./index.html">
+        <span class="brand__title">SoulScorch Engine Wiki</span>
+        <span class="brand__sub">Homebrew docs, jams, and HomeSoul Cove</span>
+      </a>
+      <nav class="top-nav">
+        <a class="is-active" href="./index.html">Home</a>
+        <a href="./pages/getting-started.html">Start Here</a>
+        <a href="./pages/docs-index.html">Docs Index</a>
+        <a href="./pages/engine-guide.html">Engine Guide</a>
+        <a href="./pages/scripting.html">Scripting</a>
+        <a href="./pages/jams.html">Jams</a>
+        <a href="./pages/catalog.html">Catalog</a>
+        <a href="./pages/homesoul-cove.html">Cove</a>
+      </nav>
+    </div>
+  </header>
   <header class="hero">
     <div class="hero__inner">
       <p class="eyebrow">SoulScorch Engine</p>
-      <h1>Homebrew wiki, mod registry, and HomeSoul Cove control deck.</h1>
-      <p class="lede">This repo can now power both the public documentation on soulscorch.org and the always-on Cloudflare API behind HomeSoul Cove.</p>
+      <h1>A real engine site for building rhythm games, homebrew worlds, and jam-ready showcases.</h1>
+      <p class="lede">SoulScorch started from an FNF base, but it is being documented and shaped as a broader engine. This wiki covers the full stack from songs and stages to scripting, multiplayer-facing plaza systems, cloud deployment, and community events.</p>
       <div class="hero__actions">
         <a href="./pages/getting-started.html" class="button button--primary">Read the wiki</a>
-        <a href="./pages/cloudflare-deploy.html" class="button button--ghost">Deploy on Cloudflare</a>
+        <a href="./pages/jams.html" class="button button--ghost">View the jam board</a>
+      </div>
+      <div class="stat-strip">
+        <div class="stat">
+          <strong>7</strong>
+          <span>core docs tracks from setup to deployment</span>
+        </div>
+        <div class="stat">
+          <strong>6</strong>
+          <span>scripting backends already supported by the engine</span>
+        </div>
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Cloudflare-hosted API path for HomeSoul Cove and HomeSoulDB</span>
+        </div>
       </div>
     </div>
   </header>
 
   <main class="layout">
-    <section class="card-grid">
+    <section class="card-grid card-grid--tight">
       <article class="card">
         <p class="card__tag">Engine</p>
-        <h2>Build actual games on the FNF base.</h2>
-        <p>SoulScorch is documented as an engine, not only a mod runtime. The wiki is structured around engine setup, 3D systems, scripting, packaging, and mod jams.</p>
+        <h2>Build full projects, not only week packs.</h2>
+        <p>SoulScorch supports songs, characters, stages, modcharts, custom states, replay systems, packaging, and multi-backend scripting from one HaxeFlixel codebase.</p>
       </article>
       <article class="card">
         <p class="card__tag">Marketplace</p>
-        <h2>HomeSoulDB powers the catalog.</h2>
-        <p>Catalog entries can advertise billboard text, jam support, chat compatibility, and avatar showcase metadata for HomeSoul Cove stands.</p>
+        <h2>HomeSoulDB powers the catalog and stand metadata.</h2>
+        <p>Listings can advertise billboard copy, showcase themes, avatar-ready booths, jam support, and multiplayer-facing metadata for HomeSoul Cove.</p>
       </article>
       <article class="card">
         <p class="card__tag">Cloudflare</p>
-        <h2>Worker API keeps the Cove online.</h2>
-        <p>The Worker exposes realtime-friendly HTTP endpoints for plaza presence, stands, chat, and voice-room signaling metadata without requiring your desktop to stay on.</p>
+        <h2>Cloudflare keeps the online layer running.</h2>
+        <p>The Worker API exposes catalog, presence, stand, chat, and signaling metadata endpoints without requiring your local machine to stay online.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">Editors</p>
+        <h2>Charting, stage, character, and modchart workflows already exist.</h2>
+        <p>Creators can stay in one toolset while iterating on content, and this site explains which editor is responsible for which part of the pipeline.</p>
       </article>
     </section>
 
@@ -47,17 +84,84 @@
         <p class="panel__label">Wiki Sections</p>
         <ul class="link-list">
           <li><a href="./pages/getting-started.html">Getting Started</a></li>
+          <li><a href="./pages/docs-index.html">Docs Index</a></li>
+          <li><a href="./pages/engine-guide.html">Engine Guide</a></li>
+          <li><a href="./pages/scripting.html">Scripting</a></li>
+          <li><a href="./pages/jams.html">Jam Roster</a></li>
+          <li><a href="./pages/archive.html">Jam Archive</a></li>
+          <li><a href="./pages/catalog.html">Catalog Browser</a></li>
           <li><a href="./pages/homesoul-cove.html">HomeSoul Cove</a></li>
           <li><a href="./pages/cloudflare-deploy.html">Cloudflare Deployment</a></li>
         </ul>
       </div>
       <div class="panel panel--terminal">
-        <p class="panel__label">Recommended routes</p>
-        <pre>www.soulscorch.org   -> Cloudflare Pages wiki
-api.soulscorch.org   -> Cloudflare Worker API
-raw catalog source   -> GitHub + Actions validation</pre>
+        <p class="panel__label">What The Site Covers</p>
+        <pre>Engine architecture   -> HaxeFlixel + OpenFL + Lime
+Mod data layer        -> XMSoul + registry + scripts
+Community stack       -> HomeSoulDB + HomeSoul Cove
+Events                -> game jams, mod jams, stands, rosters</pre>
       </div>
     </section>
+
+    <section class="content" style="padding-bottom:40px;">
+      <div class="content__main">
+        <article class="panel copy">
+          <p class="panel__label">What SoulScorch Actually Is</p>
+          <h2 class="section-title">A rhythm-first engine that is stretching into a bigger creative platform.</h2>
+          <p>SoulScorch still carries the homebrew spirit. It is scrappy, creator-facing, and heavily mod-oriented. At the same time, the codebase already covers much more than a basic FNF fork. It ships scripting backends, chart and asset systems, editors, cutscenes, dialogues, shaders, replays, 3D experiments, and a community catalog layer.</p>
+          <p>This wiki is written to help people understand where the engine is today and where it can go next. The goal is not to sound corporate. The goal is to make the engine usable, understandable, and welcoming to people who want to build weird, stylish, or ambitious projects.</p>
+          <div class="pill-row">
+            <span class="pill">Custom songs</span>
+            <span class="pill">Weeks and menus</span>
+            <span class="pill">Shaders</span>
+            <span class="pill">3D plaza work</span>
+            <span class="pill">Replays</span>
+            <span class="pill">Cloud API</span>
+          </div>
+        </article>
+
+        <article class="panel copy">
+          <p class="panel__label">Roadmap Tracks</p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <h3>Mod-first workflow</h3>
+              <p>Small asset packs, larger overhauls, and custom gameplay behaviors should all feel like native use cases, not awkward exceptions.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Game-scale projects</h3>
+              <p>The engine needs documentation and tooling that support full original games built on the same base, including custom progression, hubs, and presentation.</p>
+            </div>
+            <div class="feature-item">
+              <h3>Community visibility</h3>
+              <p>HomeSoulDB and HomeSoul Cove are the discovery layer. They help people browse, test, showcase, and talk about projects inside the broader SoulScorch space.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <aside class="content__side">
+        <article class="panel copy">
+          <p class="panel__label">Quick Start</p>
+          <ul class="link-list">
+            <li><a href="./pages/getting-started.html">Set up the engine</a></li>
+            <li><a href="./pages/engine-guide.html">Learn the engine structure</a></li>
+            <li><a href="./pages/scripting.html">Pick a scripting backend</a></li>
+            <li><a href="./pages/jams.html">Check active jams</a></li>
+          </ul>
+        </article>
+        <article class="note-block">
+          <small>Current online routes</small>
+          <p>`api.soulscorch.org` is the live Worker API. The docs site can live on `wiki.soulscorch.org` while the main Vercel site keeps serving existing work.</p>
+        </article>
+      </aside>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>SoulScorch Engine Wiki</span>
+      <span>Built from the HomeSoulDB repo for docs, jams, and HomeSoul Cove infrastructure.</span>
+    </div>
+  </footer>
 </body>
 </html>
