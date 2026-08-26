@@ -63,6 +63,9 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
   text-decoration: none;
 }
 
@@ -104,6 +107,11 @@ a {
   color: var(--text);
   border-color: var(--line);
   background: rgba(17, 24, 28, 0.65);
+}
+
+.top-nav--compact a {
+  padding: 8px 10px;
+  font-size: 0.82rem;
 }
 
 .eyebrow, .panel__label, .card__tag {
@@ -207,6 +215,53 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.8fr);
   gap: 20px;
+}
+
+.docs-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.sidebar-group + .sidebar-group {
+  margin-top: 18px;
+}
+
+.sidebar-group h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-list li + li {
+  margin-top: 8px;
+}
+
+.sidebar-list a {
+  display: block;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+}
+
+.sidebar-list a:hover,
+.sidebar-list a.is-active {
+  color: var(--text);
+  border-color: var(--line);
+  background: rgba(17, 24, 28, 0.72);
 }
 
 .content__main,
@@ -403,6 +458,7 @@ th {
 @media (max-width: 800px) {
   .site-header__inner,
   .content,
+  .docs-shell,
   .page-hero,
   .split {
     grid-template-columns: 1fr;
@@ -414,5 +470,9 @@ th {
 
   .site-header__inner {
     padding: 12px 0;
+  }
+
+  .docs-sidebar {
+    position: static;
   }
 }

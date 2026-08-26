@@ -17,10 +17,9 @@
         <span class="brand__title">SoulScorch Engine Wiki</span>
         <span class="brand__sub">Scripting</span>
       </a>
-      <nav class="top-nav">
+      <nav class="top-nav top-nav--compact">
         <a href="../index.html">Home</a>
-        <a href="./getting-started.html">Start Here</a>
-        <a href="./engine-guide.html">Engine Guide</a>
+        <a href="./docs-index.html">Docs Index</a>
         <a class="is-active" href="./scripting.html">Scripting</a>
         <a href="./jams.html">Jams</a>
         <a href="./homesoul-cove.html">Cove</a>
@@ -51,7 +50,7 @@
     <section class="content">
       <div class="content__main">
         <article class="panel copy">
-          <h2 class="section-title">Which one should you use?</h2>
+          <h2 class="section-title">Important choices</h2>
           <div class="table-wrap">
             <table>
               <thead>
@@ -69,7 +68,7 @@
         </article>
 
         <article class="panel copy">
-          <h2 class="section-title">Common callbacks</h2>
+          <h2 class="section-title">Important callbacks</h2>
           <pre class="code-panel">create()
 onCreate()
 onPostCreate()
@@ -79,23 +78,25 @@ onUpdatePost(elapsed)
 onBeatHit(beat)
 onStepHit(step)
 onDestroy()</pre>
-    <p>Gameplay scripts can also hook note hits, misses, health changes, pause flow, and event triggers. Some callbacks can be cancelable so a script can prevent the default action.</p>
+          <p>These are the callbacks most creators need to understand first. They define setup, song start, per-frame work, rhythm hooks, and cleanup.</p>
         </article>
 
         <article class="panel copy">
-          <h2 class="section-title">Practical advice</h2>
+          <h2 class="section-title">Important rules</h2>
           <div class="faq">
-            <div class="faq-item"><h3>Use SoulScript when you want readable behavior</h3><p>It is good for modders who want timing, simple conditions, and engine-friendly commands without diving deep into object internals.</p></div>
-            <div class="faq-item"><h3>Use HScript when you need real engine reach</h3><p>It is the path for custom states, advanced gameplay hooks, and direct object work without recompiling the engine.</p></div>
-            <div class="faq-item"><h3>Use Python and JavaScript for side work</h3><p>Those backends are external process bridges. They are better for tools and occasional automation than per-frame gameplay logic.</p></div>
+            <div class="faq-item"><h3>Do not use Python or JavaScript for frame-heavy gameplay</h3><p>They are external process bridges. Keep them for tools, validation, and occasional callbacks.</p></div>
+            <div class="faq-item"><h3>Use SoulScript for readable timed behavior</h3><p>It is the easiest entry point for creators who want results quickly.</p></div>
+            <div class="faq-item"><h3>Use HScript or Iris when you need real engine reach</h3><p>They are the direct path for custom states, gameplay overrides, and deeper systems work.</p></div>
+            <div class="faq-item"><h3>Keep heavy file access out of update loops</h3><p>Read assets and data once, cache results, and prefer beat, step, event, or timer hooks over per-frame work when possible.</p></div>
           </div>
         </article>
       </div>
 
       <aside class="content__side">
         <article class="panel copy">
-          <p class="panel__label">Related tracks</p>
+          <p class="panel__label">Essential path</p>
           <ul class="link-list">
+            <li><a href="./docs-index.html">Docs index</a></li>
             <li><a href="./engine-guide.html">Engine guide</a></li>
             <li><a href="./getting-started.html">Start here</a></li>
           </ul>
