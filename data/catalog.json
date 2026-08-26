@@ -1,1 +1,34 @@
-[]
+[
+	{
+		"modId": "soul_plaza",
+		"title": "HomeSoul Cove Plaza",
+		"status": "Work In Progress (WIP)",
+		"isWIP": true,
+		"author": "JustyTCCD",
+		"description": "A 3D homebrew plaza prototype for SoulScorch Engine with stands, local avatars, jam-ready showcases, and HomeSoulDB submission hooks.",
+		"version": "0.1.0-wip",
+		"category": "Total Conversions",
+		"downloadUrl": "",
+		"teaserUrl": "https://www.soulscorch.org/",
+		"bannerUrl": "",
+		"bumpCount": 0,
+		"streamerScore": 1,
+		"lastBumped": 1787760000,
+		"tags": [
+			"WIP",
+			"3D",
+			"Marketplace",
+			"Jam Ready"
+		],
+		"boothText": "Walk the Cove, claim a stand, and show your build without leaving the engine.",
+		"boothTheme": "homebrew",
+		"compatibleModes": [
+			"singleplayer",
+			"plaza-multiplayer"
+		],
+		"supportsTextChat": true,
+		"supportsVoiceChat": true,
+		"supportsAvatarShowcase": true,
+		"supportsJamShowcase": true
+	}
+]
