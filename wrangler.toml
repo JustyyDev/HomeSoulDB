@@ -8,13 +8,12 @@ MODERATION_URL = "https://raw.githubusercontent.com/JustyyDev/HomeSoulDB/main/da
 
 [[kv_namespaces]]
 binding = "COVE_CACHE"
-id = "replace-with-cloudflare-kv-id"
-preview_id = "replace-with-cloudflare-kv-preview-id"
+id = "2b7ed7520d494e5183ff7af36c12be72"
 
 [[d1_databases]]
 binding = "COVE_DB"
 database_name = "homesouldb-cove"
-database_id = "replace-with-cloudflare-d1-id"
+database_id = "7c5ac8d1-e72a-4975-a990-9d6289c1f9e9"
 migrations_dir = "migrations"
 
 [observability]
